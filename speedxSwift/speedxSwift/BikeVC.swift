@@ -1,5 +1,5 @@
 //
-//  Class_VC.swift
+//  Brand_VC.swift
 //  LBTabBar
 //
 //  Created by chenlei_mac on 15/8/25.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class Class_VC: UIViewController {
+class BikeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "分类"
+        self.navigationItem.title = "骑行"
         // Do any additional setup after loading the view.
     }
 

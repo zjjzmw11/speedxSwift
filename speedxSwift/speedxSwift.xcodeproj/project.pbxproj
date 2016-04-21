@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		734E749707E753628F221FAD /* Pods_speedxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FECDD15EF68CF3BB798E017 /* Pods_speedxSwift.framework */; };
 		FF82DC651CC86FC300064A17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC641CC86FC300064A17 /* AppDelegate.swift */; };
-		FF82DC671CC86FC300064A17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC661CC86FC300064A17 /* ViewController.swift */; };
 		FF82DC6C1CC86FC300064A17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF82DC6B1CC86FC300064A17 /* Assets.xcassets */; };
 		FF82DC871CC8852B00064A17 /* BigYoungMediumGB2.0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF82DC771CC8852B00064A17 /* BigYoungMediumGB2.0.ttf */; };
 		FF82DC881CC8852B00064A17 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC791CC8852B00064A17 /* Array+Extension.swift */; };
@@ -27,18 +26,14 @@
 		FF82DC941CC8852B00064A17 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC851CC8852B00064A17 /* UIStoryboard+Extension.swift */; };
 		FF82DC951CC8852B00064A17 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC861CC8852B00064A17 /* Urls.swift */; };
 		FF82DC991CC885FD00064A17 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC981CC885FD00064A17 /* BaseViewController.swift */; };
-		FF82DC9E1CC8862800064A17 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC9A1CC8862800064A17 /* FirstViewController.swift */; };
-		FF82DC9F1CC8862800064A17 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC9B1CC8862800064A17 /* HomeCell.swift */; };
-		FF82DCA01CC8862800064A17 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC9C1CC8862800064A17 /* HomeViewController.swift */; };
-		FF82DCA11CC8862800064A17 /* SimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC9D1CC8862800064A17 /* SimpleViewController.swift */; };
 		FF9000F11CC8D79A00ED3D3C /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000EE1CC8D79A00ED3D3C /* CustomTabBar.swift */; };
 		FF9000F21CC8D79A00ED3D3C /* LBNvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000EF1CC8D79A00ED3D3C /* LBNvc.swift */; };
 		FF9000F31CC8D79A00ED3D3C /* Public.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F01CC8D79A00ED3D3C /* Public.swift */; };
-		FF9000F91CC8D98600ED3D3C /* Brand_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F41CC8D98600ED3D3C /* Brand_VC.swift */; };
-		FF9000FA1CC8D98600ED3D3C /* Class_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F51CC8D98600ED3D3C /* Class_VC.swift */; };
-		FF9000FB1CC8D98600ED3D3C /* Home_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F61CC8D98600ED3D3C /* Home_VC.swift */; };
-		FF9000FC1CC8D98600ED3D3C /* Personal_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F71CC8D98600ED3D3C /* Personal_VC.swift */; };
-		FF9000FD1CC8D98600ED3D3C /* Shoping_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F81CC8D98600ED3D3C /* Shoping_VC.swift */; };
+		FF9000F91CC8D98600ED3D3C /* BikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F41CC8D98600ED3D3C /* BikeVC.swift */; };
+		FF9000FA1CC8D98600ED3D3C /* RankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F51CC8D98600ED3D3C /* RankVC.swift */; };
+		FF9000FB1CC8D98600ED3D3C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F61CC8D98600ED3D3C /* HomeVC.swift */; };
+		FF9000FC1CC8D98600ED3D3C /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F71CC8D98600ED3D3C /* MoreVC.swift */; };
+		FF9000FD1CC8D98600ED3D3C /* ClubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F81CC8D98600ED3D3C /* ClubVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +42,6 @@
 		C54B64C47507714E096F8B48 /* Pods-speedxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speedxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-speedxSwift/Pods-speedxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		FF82DC611CC86FC300064A17 /* speedxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speedxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF82DC641CC86FC300064A17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF82DC661CC86FC300064A17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		FF82DC6B1CC86FC300064A17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF82DC701CC86FC300064A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF82DC771CC8852B00064A17 /* BigYoungMediumGB2.0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BigYoungMediumGB2.0.ttf; sourceTree = "<group>"; };
@@ -67,18 +61,14 @@
 		FF82DC861CC8852B00064A17 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		FF82DC971CC885D500064A17 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		FF82DC981CC885FD00064A17 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		FF82DC9A1CC8862800064A17 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = ../FirstViewController.swift; sourceTree = "<group>"; };
-		FF82DC9B1CC8862800064A17 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeCell.swift; path = ../HomeCell.swift; sourceTree = "<group>"; };
-		FF82DC9C1CC8862800064A17 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
-		FF82DC9D1CC8862800064A17 /* SimpleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleViewController.swift; path = ../SimpleViewController.swift; sourceTree = "<group>"; };
 		FF9000EE1CC8D79A00ED3D3C /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		FF9000EF1CC8D79A00ED3D3C /* LBNvc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBNvc.swift; sourceTree = "<group>"; };
 		FF9000F01CC8D79A00ED3D3C /* Public.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Public.swift; sourceTree = "<group>"; };
-		FF9000F41CC8D98600ED3D3C /* Brand_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand_VC.swift; sourceTree = "<group>"; };
-		FF9000F51CC8D98600ED3D3C /* Class_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class_VC.swift; sourceTree = "<group>"; };
-		FF9000F61CC8D98600ED3D3C /* Home_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home_VC.swift; sourceTree = "<group>"; };
-		FF9000F71CC8D98600ED3D3C /* Personal_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Personal_VC.swift; sourceTree = "<group>"; };
-		FF9000F81CC8D98600ED3D3C /* Shoping_VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shoping_VC.swift; sourceTree = "<group>"; };
+		FF9000F41CC8D98600ED3D3C /* BikeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeVC.swift; sourceTree = "<group>"; };
+		FF9000F51CC8D98600ED3D3C /* RankVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankVC.swift; sourceTree = "<group>"; };
+		FF9000F61CC8D98600ED3D3C /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		FF9000F71CC8D98600ED3D3C /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		FF9000F81CC8D98600ED3D3C /* ClubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,11 +123,11 @@
 			children = (
 				FF82DC641CC86FC300064A17 /* AppDelegate.swift */,
 				FF82DC981CC885FD00064A17 /* BaseViewController.swift */,
-				FF9000F41CC8D98600ED3D3C /* Brand_VC.swift */,
-				FF9000F51CC8D98600ED3D3C /* Class_VC.swift */,
-				FF9000F61CC8D98600ED3D3C /* Home_VC.swift */,
-				FF9000F71CC8D98600ED3D3C /* Personal_VC.swift */,
-				FF9000F81CC8D98600ED3D3C /* Shoping_VC.swift */,
+				FF9000F61CC8D98600ED3D3C /* HomeVC.swift */,
+				FF9000F51CC8D98600ED3D3C /* RankVC.swift */,
+				FF9000F41CC8D98600ED3D3C /* BikeVC.swift */,
+				FF9000F81CC8D98600ED3D3C /* ClubVC.swift */,
+				FF9000F71CC8D98600ED3D3C /* MoreVC.swift */,
 				FF9000EC1CC8D77000ED3D3C /* CustomTabBar */,
 				FF9000ED1CC8D77000ED3D3C /* test */,
 				FF82DC6B1CC86FC300064A17 /* Assets.xcassets */,
@@ -199,11 +189,6 @@
 		FF9000ED1CC8D77000ED3D3C /* test */ = {
 			isa = PBXGroup;
 			children = (
-				FF82DC661CC86FC300064A17 /* ViewController.swift */,
-				FF82DC9A1CC8862800064A17 /* FirstViewController.swift */,
-				FF82DC9B1CC8862800064A17 /* HomeCell.swift */,
-				FF82DC9C1CC8862800064A17 /* HomeViewController.swift */,
-				FF82DC9D1CC8862800064A17 /* SimpleViewController.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -331,31 +316,26 @@
 			files = (
 				FF82DC921CC8852B00064A17 /* UIImage+Extension.swift in Sources */,
 				FF82DC8D1CC8852B00064A17 /* NSDate+Extension.swift in Sources */,
-				FF82DC9F1CC8862800064A17 /* HomeCell.swift in Sources */,
 				FF82DC8E1CC8852B00064A17 /* String+Extension.swift in Sources */,
-				FF9000F91CC8D98600ED3D3C /* Brand_VC.swift in Sources */,
+				FF9000F91CC8D98600ED3D3C /* BikeVC.swift in Sources */,
 				FF82DC931CC8852B00064A17 /* UINib+Extension.swift in Sources */,
 				FF9000F21CC8D79A00ED3D3C /* LBNvc.swift in Sources */,
-				FF82DCA11CC8862800064A17 /* SimpleViewController.swift in Sources */,
 				FF82DC881CC8852B00064A17 /* Array+Extension.swift in Sources */,
 				FF82DC901CC8852B00064A17 /* UIColor+Extension.swift in Sources */,
-				FF9000FB1CC8D98600ED3D3C /* Home_VC.swift in Sources */,
+				FF9000FB1CC8D98600ED3D3C /* HomeVC.swift in Sources */,
 				FF82DC8F1CC8852B00064A17 /* Tool.swift in Sources */,
 				FF82DC991CC885FD00064A17 /* BaseViewController.swift in Sources */,
 				FF82DC891CC8852B00064A17 /* DHButton.swift in Sources */,
-				FF82DC9E1CC8862800064A17 /* FirstViewController.swift in Sources */,
 				FF82DC911CC8852B00064A17 /* UIFont+Extension.swift in Sources */,
-				FF9000FD1CC8D98600ED3D3C /* Shoping_VC.swift in Sources */,
+				FF9000FD1CC8D98600ED3D3C /* ClubVC.swift in Sources */,
 				FF9000F31CC8D79A00ED3D3C /* Public.swift in Sources */,
 				FF82DC8C1CC8852B00064A17 /* NetworkTool.swift in Sources */,
 				FF9000F11CC8D79A00ED3D3C /* CustomTabBar.swift in Sources */,
 				FF82DC8A1CC8852B00064A17 /* GlobalDefine.swift in Sources */,
-				FF9000FC1CC8D98600ED3D3C /* Personal_VC.swift in Sources */,
+				FF9000FC1CC8D98600ED3D3C /* MoreVC.swift in Sources */,
 				FF82DC951CC8852B00064A17 /* Urls.swift in Sources */,
-				FF82DCA01CC8862800064A17 /* HomeViewController.swift in Sources */,
-				FF82DC671CC86FC300064A17 /* ViewController.swift in Sources */,
 				FF82DC651CC86FC300064A17 /* AppDelegate.swift in Sources */,
-				FF9000FA1CC8D98600ED3D3C /* Class_VC.swift in Sources */,
+				FF9000FA1CC8D98600ED3D3C /* RankVC.swift in Sources */,
 				FF82DC8B1CC8852B00064A17 /* NetworkResponse.swift in Sources */,
 				FF82DC941CC8852B00064A17 /* UIStoryboard+Extension.swift in Sources */,
 			);

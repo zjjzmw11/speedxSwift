@@ -1,5 +1,5 @@
 //
-//  Brand_VC.swift
+//  Home_VC.swift
 //  LBTabBar
 //
 //  Created by chenlei_mac on 15/8/25.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class Brand_VC: UIViewController {
+class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "品牌团"
+        self.navigationItem.title = "我"
         // Do any additional setup after loading the view.
     }
 

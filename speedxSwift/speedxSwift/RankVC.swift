@@ -1,5 +1,5 @@
 //
-//  Shoping_VC.swift
+//  Class_VC.swift
 //  LBTabBar
 //
 //  Created by chenlei_mac on 15/8/25.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class Shoping_VC: UIViewController {
+class RankVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "积分商城"
+        self.navigationItem.title = "排行榜"
         // Do any additional setup after loading the view.
     }
 

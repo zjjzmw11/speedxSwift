@@ -12,11 +12,11 @@ class CustomTabBar: UITabBarController {
     
     class func CusTomTabBar() ->UITabBarController{
         
-        let vc1 = Home_VC()
-        let vc2 = Class_VC()
-        let vc3 = Brand_VC()
-        let vc4 = Shoping_VC()
-        let vc5 = Personal_VC()
+        let vc1 = HomeVC()     // 我
+        let vc2 = RankVC()    // 排行榜
+        let vc3 = BikeVC()    // 骑行
+        let vc4 = ClubVC()  // 俱乐部
+        let vc5 = MoreVC() // 更多
         let nvc1:UINavigationController = LBNvc(rootViewController: vc1)
         let nvc2:UINavigationController = LBNvc(rootViewController: vc2)
         let nvc3:UINavigationController = LBNvc(rootViewController: vc3)

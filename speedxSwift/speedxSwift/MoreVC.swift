@@ -1,5 +1,5 @@
 //
-//  Home_VC.swift
+//  Personal_VC.swift
 //  LBTabBar
 //
 //  Created by chenlei_mac on 15/8/25.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class Home_VC: UIViewController {
+class MoreVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "首页"
+        self.navigationItem.title = "更多"
         // Do any additional setup after loading the view.
     }
 

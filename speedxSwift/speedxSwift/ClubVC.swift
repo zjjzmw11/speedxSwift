@@ -1,5 +1,5 @@
 //
-//  Personal_VC.swift
+//  Shoping_VC.swift
 //  LBTabBar
 //
 //  Created by chenlei_mac on 15/8/25.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class Personal_VC: UIViewController {
+class ClubVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "个人中心"
+        self.navigationItem.title = "俱乐部"
         // Do any additional setup after loading the view.
     }
 
