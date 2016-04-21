@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoreVC: UIViewController {
+class MoreVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

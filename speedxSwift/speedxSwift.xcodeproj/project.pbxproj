@@ -34,6 +34,7 @@
 		FF9000FB1CC8D98600ED3D3C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F61CC8D98600ED3D3C /* HomeVC.swift */; };
 		FF9000FC1CC8D98600ED3D3C /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F71CC8D98600ED3D3C /* MoreVC.swift */; };
 		FF9000FD1CC8D98600ED3D3C /* ClubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F81CC8D98600ED3D3C /* ClubVC.swift */; };
+		FF9000FF1CC8E85B00ED3D3C /* UIView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000FE1CC8E85B00ED3D3C /* UIView+Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		FF9000F61CC8D98600ED3D3C /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		FF9000F71CC8D98600ED3D3C /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		FF9000F81CC8D98600ED3D3C /* ClubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubVC.swift; sourceTree = "<group>"; };
+		FF9000FE1CC8E85B00ED3D3C /* UIView+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Util.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				FF82DC7C1CC8852B00064A17 /* NetworkResponse.swift */,
 				FF82DC7D1CC8852B00064A17 /* NetworkTool.swift */,
 				FF82DC7E1CC8852B00064A17 /* NSDate+Extension.swift */,
+				FF9000FE1CC8E85B00ED3D3C /* UIView+Util.swift */,
 				FF82DC7F1CC8852B00064A17 /* String+Extension.swift */,
 				FF82DC801CC8852B00064A17 /* Tool.swift */,
 				FF82DC811CC8852B00064A17 /* UIColor+Extension.swift */,
@@ -335,6 +338,7 @@
 				FF9000FC1CC8D98600ED3D3C /* MoreVC.swift in Sources */,
 				FF82DC951CC8852B00064A17 /* Urls.swift in Sources */,
 				FF82DC651CC86FC300064A17 /* AppDelegate.swift in Sources */,
+				FF9000FF1CC8E85B00ED3D3C /* UIView+Util.swift in Sources */,
 				FF9000FA1CC8D98600ED3D3C /* RankVC.swift in Sources */,
 				FF82DC8B1CC8852B00064A17 /* NetworkResponse.swift in Sources */,
 				FF82DC941CC8852B00064A17 /* UIStoryboard+Extension.swift in Sources */,

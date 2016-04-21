@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClubVC: UIViewController {
+class ClubVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

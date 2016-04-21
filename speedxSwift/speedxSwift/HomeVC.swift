@@ -8,12 +8,12 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "我"
-        // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
+        // statusBar
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         // 初始化window
         self.window = UIWindow()
         self.window?.backgroundColor = UIColor.whiteColor()
