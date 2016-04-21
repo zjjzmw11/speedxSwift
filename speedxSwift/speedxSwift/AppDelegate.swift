@@ -13,9 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        // 初始化window
+        self.window = UIWindow()
+        self.window?.backgroundColor = UIColor.whiteColor()
+        self.window?.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight)
+        // 不用导入头文件
+        self.window?.rootViewController = CustomTabBar.CusTomTabBar()
+        self.window?.makeKeyAndVisible()
+        
+        
         return true
     }
 

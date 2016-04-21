@@ -1,0 +1,33 @@
+PODS:
+  - Alamofire (3.3.1)
+  - AsyncSwift (1.7.2)
+  - HanekeSwift (0.10.1)
+  - Realm (0.98.8):
+    - Realm/Headers (= 0.98.8)
+  - Realm/Headers (0.98.8)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.3)
+  - AsyncSwift (~> 1.7.2)
+  - HanekeSwift (~> 0.10.1)
+  - Realm (~> 0.98.8)
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+SPEC CHECKSUMS:
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AsyncSwift: 46a78bceb11f0e5bb52747f740d9692ec78d2d7c
+  HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
+  Realm: 0e293bb62999730599efc3048896bbd4f2e43bcd
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+COCOAPODS: 0.39.0
