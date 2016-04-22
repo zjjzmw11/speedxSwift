@@ -37,6 +37,8 @@ class CustomTabBar: UITabBarController {
         tc.tabBar.tintColor = UIColor .redColor()
         tc.tabBar.backgroundImage = UIImage.imageWithColor(kSpeedX_Color_Navigation_Bg, size: CGSizeMake(kScreenWidth, kTabBarHeight))
         tc.viewControllers = [nvc1,nvc2,nvc3,nvc4,nvc5];
+        // 默认选中的vc
+        tc.selectedIndex = 2
         return tc;
     }
 
