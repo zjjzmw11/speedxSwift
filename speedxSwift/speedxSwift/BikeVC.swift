@@ -27,7 +27,7 @@ class BikeVC: BaseViewController {
 
     func myView() {
         // 里程值
-        distanceValueLabel = Tool.initALabel(CGRectMake(0, 60, kScreenWidth, 80), textString: "0", font: UIFont.boldSystemFontOfSize(26), textColor: UIColor.whiteColor())
+        distanceValueLabel = Tool.initALabel(CGRectMake(0, 30, kScreenWidth, 120), textString: "0", font: UIFont.boldSystemFontOfSize(90), textColor: UIColor.whiteColor())
         distanceValueLabel!.textAlignment = .Center
         self.view.addSubview(distanceValueLabel!)
         // 本月里程文字
@@ -35,7 +35,7 @@ class BikeVC: BaseViewController {
         distanceLabel!.textAlignment = .Center
         self.view.addSubview(distanceLabel!)
         // 开始骑行按钮
-        startButton = Tool.initAButton(CGRectMake(0, kScreenWidth - kTabBarHeight - 100, 60, 60), titleString: "", font: UIFont.boldSystemFontOfSize(12), textColor: UIColor.clearColor(), bgImage: UIImage.init(named: "ridding_start_button_image")!)
+        startButton = Tool.initAButton(CGRectMake(0, kScreenHeight - kTabBarHeight - kNavBarHeight - 100, 60, 60), titleString: "", font: UIFont.boldSystemFontOfSize(12), textColor: UIColor.clearColor(), bgImage: UIImage.init(named: "ridding_start_button_image")!)
         startButton?.center = CGPointMake(kScreenWidth/2, startButton!.centerY())
         self.view.addSubview(startButton!)
         

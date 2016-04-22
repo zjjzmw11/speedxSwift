@@ -28,7 +28,7 @@ class Tool {
         aLabel.text = textString
         aLabel.font = font
         aLabel.textColor = textColor
-        aLabel.sizeToFit()
+//        aLabel.sizeToFit()
         
         return aLabel
     }
