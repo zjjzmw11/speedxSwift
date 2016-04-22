@@ -25,3 +25,18 @@ let kScreenHeight          = CGRectGetHeight(UIScreen.mainScreen().bounds)
 let kCalendar              = NSCalendar.currentCalendar()
 let kDateFormatter         = NSDateFormatter()
 
+
+// -------------------------------颜色定义-----------------------------------------
+/// 页面默认背景色、tablView的背景色
+let kSpeedX_Color_View_Color_Bg     =   UIColor.hexStringToColor("0X1F1F1F")
+/// 导航栏、tabbar
+let kSpeedX_Color_Navigation_Bg     =   UIColor.hexStringToColor("0X111111")
+
+/// 页面中TableView的分割线颜色
+let kSpeedX_Color_Table_Seperator_Line      =   UIColor.hexStringToColor("0X292929")
+
+/// TableView的cell默认颜色值、
+let kSpeedX_Color_Table_Cell_Default_Bg     =   UIColor.hexStringToColor("0X111111")
+
+/// 黑色字体颜色
+let kSpeedX_Color_Black_Font    =       UIColor.hexStringToColor("0X111111")

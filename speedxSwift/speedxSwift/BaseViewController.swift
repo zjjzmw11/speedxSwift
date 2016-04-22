@@ -13,7 +13,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 设置页面的背景颜色
-        self.view.backgroundColor = UIColor.lightGrayColor()
+        self.view.backgroundColor = kSpeedX_Color_View_Color_Bg
         
 
     }

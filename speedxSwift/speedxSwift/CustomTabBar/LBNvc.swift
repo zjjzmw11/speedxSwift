@@ -14,7 +14,7 @@ class LBNvc: UINavigationController {
         
         let navigationTitleAttribute : NSDictionary = NSDictionary(object: UIColor.whiteColor(),forKey: NSForegroundColorAttributeName)
         self.navigationBar.titleTextAttributes = navigationTitleAttribute as [NSObject : AnyObject] as? [String : AnyObject]
-        self.navigationBar .setBackgroundImage(UIImage.imageWithColor(UIColor.blackColor(), size: CGSizeMake(kScreenWidth, 64)), forBarMetrics: .Default)
+        self.navigationBar .setBackgroundImage(UIImage.imageWithColor(kSpeedX_Color_Navigation_Bg, size: CGSizeMake(kScreenWidth, 64)), forBarMetrics: .Default)
         
     }
 }

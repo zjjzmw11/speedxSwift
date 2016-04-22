@@ -20,26 +20,40 @@ extension UIColor {
     class func colorWithRGBA(R: Float, G: Float, B: Float, A: Float = 1.0) -> UIColor {
         return UIColor(red: CGFloat(R / 255.0), green: CGFloat(G / 255.0), blue: CGFloat(B / 255.0), alpha: CGFloat(A))
     }
+    
+    /**
+     创建颜色- 16进制
+     
+     - parameter hexString: 16进制字符串
+     
+     - returns: uicolor
+     */
+    class func hexStringToColor(hexString: String) -> UIColor{
+        var cString: String = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        
+        if cString.characters.count < 6 {return UIColor.blackColor()}
+        if cString.hasPrefix("0X") {cString = cString.substringFromIndex(cString.startIndex.advancedBy(2))}
+        if cString.hasPrefix("#") {cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))}
+        if cString.characters.count != 6 {return UIColor.blackColor()}
+        
+        var range: NSRange = NSMakeRange(0, 2)
+        
+        let rString = (cString as NSString).substringWithRange(range)
+        range.location = 2
+        let gString = (cString as NSString).substringWithRange(range)
+        range.location = 4
+        let bString = (cString as NSString).substringWithRange(range)
+        
+        var r: UInt32 = 0x0
+        var g: UInt32 = 0x0
+        var b: UInt32 = 0x0
+        NSScanner.init(string: rString).scanHexInt(&r)
+        NSScanner.init(string: gString).scanHexInt(&g)
+        NSScanner.init(string: bString).scanHexInt(&b)
+        
+        return UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: CGFloat(1))
+        
+    }
 }
 
-//class func colorFromHexString(hexString:String) -> UIColor {
-//    var rgbValue:CUnsignedInt = 0;
-////    hexString = [hexString stringByReplacingOccurrencesOfString:@"#" withString:@""];
-//    var resultHexString : String?
-//    resultHexString = hexString.stringByReplacingOccurrencesOfString("#", withString: "");
-//    
-//
-////    NSScanner *scanner = [NSScanner scannerWithString:hexString];
-//    var scanner : NSScanner = NSScanner.localizedScannerWithString(resultHexString!)
-////    [scanner scanHexInt:&rgbValue];
-//    scanner.scanHexInt(&rgbValue)
-//    
-////    return [UIColor] colorWithR:((rgbValue & 0xFF0000) >> 16) G:((rgbValue & 0xFF00) >> 8) B:(rgbValue & 0xFF) A:1.0];
-//    
-//    return UIColor.colorWithRGBA(((rgbValue & 0xFF0000) >> 16.0), G: ((rgbValue & 0xFF00) >> 8.0), B: (rgbValue & 0xFF), A: 1.0)
-//}
-
-
-// 版权属于原作者
-// http://code4app.com (cn) http://code4app.net (en)
-// 发布代码于最专业的源码分享网站: Code4App.com
+    
