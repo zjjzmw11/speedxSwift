@@ -9,23 +9,30 @@
 import MapKit
 import UIKit
 
-class CyclingMapViewVC: BaseViewController,MKMapViewDelegate {
+class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProtocol {
 
     /// 当前地图
     var mapView : MKMapView!
     /// 回到当前点的按钮
     var currentButton : UIButton?
+    /// 返回按钮
+    var backButton : UIButton?
     /// 当前坐标点
     var currentCLLocation : CLLocation?
     /// 当前线
     var routeLine : MKPolyline?
     /// 点数组
     var points : NSMutableArray?
+    /// 骑行管理
+    var cycManager = CyclingManager.getCyclingManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // 初始化地图UI
         self .initMyMapView()
+        // 设置位置更新的代理-------
+        self.cycManager.cycDelegate = self
         
     }
     // 初始化地图 UI 
@@ -33,32 +40,49 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate {
         mapView = MKMapView(frame: self.view.frame)
         mapView.mapType = .Standard
         mapView.userTrackingMode = .Follow
-        mapView.delegate = self
         // 显示定位当前点
         self.mapView.showsUserLocation = true
+        // 划线 rendererForOverlay 代理方法执行，设置颜色。粗细 MKMapViewDelegate
+        self.mapView.delegate = self
         self.view.addSubview(mapView!)
+        
+        
+        // 当前按钮
+        currentButton = Tool.initAButton(CGRectMake(20, kScreenHeight - 100, 80, 80), titleString: "", font: UIFont.boldSystemFontOfSize(12), textColor: UIColor.clearColor(), bgImage: UIImage.init())
+        currentButton?.setImage(UIImage.init(named: "riding_done"), forState: UIControlState.Normal)
+        self.view.addSubview(currentButton!)
+        currentButton?.addTarget(self, action: #selector(CyclingMapViewVC.currentLocationAction), forControlEvents: UIControlEvents.TouchUpInside)
+        // 返回按钮
+         backButton = Tool.initAButton(CGRectMake(kScreenWidth - currentButton!.width() - 20, currentButton!.top(), currentButton!.width(), currentButton!.height()), titleString: "", font: UIFont.boldSystemFontOfSize(12), textColor: UIColor.clearColor(), bgImage: UIImage.init())
+        backButton?.setImage(UIImage.init(named: "riding_map"), forState: UIControlState.Normal)
+        self.view.addSubview(backButton!)
+        backButton?.addTarget(self, action: #selector(CyclingMapViewVC.backAction), forControlEvents: UIControlEvents.TouchUpInside)
     }
+    /// 地图方法
+    func backAction() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     /// 回到当前点
     func currentLocationAction() {
         if self.currentCLLocation != nil {
             self.mapView.setCenterCoordinateLevel(self.currentCLLocation!.coordinate, zoomLevel: 15, animated: true)
         }
     }
-    /// 地图定位更新---- 地图在前台的时候
-    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
-        if userLocation.location != nil {
-            print("更新位置----地图")
-            self.currentCLLocation = userLocation.location
-            if self.points == nil {
-                self.points = NSMutableArray()
-            }
-            self.points?.addObject(userLocation.location!)
+    /// ----------代理方法---位置更新
+    func didUpdateAction(loca: CLLocation) {
+        print("更新位置----地图---------代理传过来的")
+        self.currentCLLocation = loca
+        
+        if self.points == nil {
+            self.points = NSMutableArray()
         }
+        self.points?.addObject(loca)
+        // 划线
         self.routeLine = polyline()
         if self.routeLine != nil {
             self.mapView.addOverlay(self.routeLine!)
         }
-        
     }
     
     // -----------------------------------划线---------------------------------
