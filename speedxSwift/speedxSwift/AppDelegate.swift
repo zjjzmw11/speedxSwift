@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
         // statusBar
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        self.setupWithStatusBar(application)
         
         // 初始化window
         self.window = UIWindow()
@@ -28,6 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         return true
+    }
+    // 状态栏
+    func setupWithStatusBar(application: UIApplication) {
+        // 设置状态栏隐藏
+        application.statusBarHidden = false;
+//        application.setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade);
+        // 设置状态栏高亮
+        application.statusBarStyle = UIStatusBarStyle.LightContent;
+        application.setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true);
     }
 
     func applicationWillResignActive(application: UIApplication) {
