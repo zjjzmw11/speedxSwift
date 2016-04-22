@@ -35,6 +35,7 @@
 		FF9000FC1CC8D98600ED3D3C /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F71CC8D98600ED3D3C /* MoreVC.swift */; };
 		FF9000FD1CC8D98600ED3D3C /* ClubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F81CC8D98600ED3D3C /* ClubVC.swift */; };
 		FF9000FF1CC8E85B00ED3D3C /* UIView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000FE1CC8E85B00ED3D3C /* UIView+Util.swift */; };
+		FF9001021CC9BA5400ED3D3C /* RidingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001011CC9BA5400ED3D3C /* RidingVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		FF9000F71CC8D98600ED3D3C /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		FF9000F81CC8D98600ED3D3C /* ClubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubVC.swift; sourceTree = "<group>"; };
 		FF9000FE1CC8E85B00ED3D3C /* UIView+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Util.swift"; sourceTree = "<group>"; };
+		FF9001011CC9BA5400ED3D3C /* RidingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				FF9000F41CC8D98600ED3D3C /* BikeVC.swift */,
 				FF9000F81CC8D98600ED3D3C /* ClubVC.swift */,
 				FF9000F71CC8D98600ED3D3C /* MoreVC.swift */,
+				FF9001001CC9BA0900ED3D3C /* Bike */,
 				FF9000EC1CC8D77000ED3D3C /* CustomTabBar */,
 				FF9000ED1CC8D77000ED3D3C /* test */,
 				FF82DC6B1CC86FC300064A17 /* Assets.xcassets */,
@@ -194,6 +197,14 @@
 			children = (
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		FF9001001CC9BA0900ED3D3C /* Bike */ = {
+			isa = PBXGroup;
+			children = (
+				FF9001011CC9BA5400ED3D3C /* RidingVC.swift */,
+			);
+			path = Bike;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +349,7 @@
 				FF9000FC1CC8D98600ED3D3C /* MoreVC.swift in Sources */,
 				FF82DC951CC8852B00064A17 /* Urls.swift in Sources */,
 				FF82DC651CC86FC300064A17 /* AppDelegate.swift in Sources */,
+				FF9001021CC9BA5400ED3D3C /* RidingVC.swift in Sources */,
 				FF9000FF1CC8E85B00ED3D3C /* UIView+Util.swift in Sources */,
 				FF9000FA1CC8D98600ED3D3C /* RankVC.swift in Sources */,
 				FF82DC8B1CC8852B00064A17 /* NetworkResponse.swift in Sources */,

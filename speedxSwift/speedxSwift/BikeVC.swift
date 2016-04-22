@@ -35,11 +35,49 @@ class BikeVC: BaseViewController {
         distanceLabel!.textAlignment = .Center
         self.view.addSubview(distanceLabel!)
         // 开始骑行按钮
-        startButton = Tool.initAButton(CGRectMake(0, kScreenHeight - kTabBarHeight - kNavBarHeight - 100, 60, 60), titleString: "", font: UIFont.boldSystemFontOfSize(12), textColor: UIColor.clearColor(), bgImage: UIImage.init(named: "ridding_start_button_image")!)
+        startButton = Tool.initAButton(CGRectMake(0, kScreenHeight - kTabBarHeight - kNavBarHeight - 100, 70, 70), titleString: "", font: UIFont.boldSystemFontOfSize(12), textColor: UIColor.clearColor(), bgImage: UIImage.init(named: "ridding_start_button_image")!)
         startButton?.center = CGPointMake(kScreenWidth/2, startButton!.centerY())
         self.view.addSubview(startButton!)
+        startButton?.addTarget(self, action: #selector(BikeVC.startRidingAction), forControlEvents: UIControlEvents.TouchUpInside)
         
-
+    }
+    
+    /// 开始骑行方法
+    func startRidingAction() {
+        var detailVC : RidingVC?
+        detailVC = RidingVC()
+        var navi : UINavigationController?
+        navi = UINavigationController(rootViewController: detailVC!)
+//        self.navigationController?.pushViewController(navi!, animated: true)
+        self.presentViewController(navi!, animated: true, completion: nil)
+    
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
