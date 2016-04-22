@@ -9,47 +9,78 @@
 import MapKit
 import UIKit
 
-class CyclingMapViewVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate {
+class CyclingMapViewVC: BaseViewController,MKMapViewDelegate {
 
     /// 当前地图
     var mapView : MKMapView!
-    /// 定位管理
-    var locationManager = CLLocationManager()
+    /// 回到当前点的按钮
+    var currentButton : UIButton?
     /// 当前坐标点
     var currentCLLocation : CLLocation?
-    
+    /// 当前线
+    var routeLine : MKPolyline?
+    /// 点数组
+    var points : NSMutableArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // 初始化地图UI
         self .initMyMapView()
         
-        self.locationManager.delegate = self
-        // 请求定位权限
-        if self.locationManager.respondsToSelector(#selector(CLLocationManager.requestAlwaysAuthorization)) {
-            self.locationManager.requestWhenInUseAuthorization()
-        }
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.startUpdatingLocation() //开始定位
-        // 显示定位当前点
-        self.mapView.showsUserLocation = true
-        
     }
     // 初始化地图 UI 
     func initMyMapView() {
         mapView = MKMapView(frame: self.view.frame)
+        mapView.mapType = .Standard
+        mapView.userTrackingMode = .Follow
+        mapView.delegate = self
+        // 显示定位当前点
+        self.mapView.showsUserLocation = true
         self.view.addSubview(mapView!)
     }
-    // CLLocationManager定位代理方法
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("定位更新了")
-        if locations.last != nil {
-            currentCLLocation = locations.last!
-            // 设置地图中心
-            self.mapView.setCenterCoordinateLevel(currentCLLocation!.coordinate, zoomLevel: 15, animated: true)
-            print("lat= \(currentCLLocation!.coordinate.latitude) log = \(currentCLLocation!.coordinate.longitude)")
+    /// 回到当前点
+    func currentLocationAction() {
+        if self.currentCLLocation != nil {
+            self.mapView.setCenterCoordinateLevel(self.currentCLLocation!.coordinate, zoomLevel: 15, animated: true)
+        }
+    }
+    /// 地图定位更新---- 地图在前台的时候
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
+        if userLocation.location != nil {
+            print("更新位置----地图")
+            self.currentCLLocation = userLocation.location
+            if self.points == nil {
+                self.points = NSMutableArray()
+            }
+            self.points?.addObject(userLocation.location!)
+        }
+        self.routeLine = polyline()
+        if self.routeLine != nil {
+            self.mapView.addOverlay(self.routeLine!)
         }
         
+    }
+    
+    // -----------------------------------划线---------------------------------
+    /// 划线的颜色和宽度
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.redColor()
+            polylineRenderer.lineWidth = 5
+            return polylineRenderer
+        }
+        return MKOverlayRenderer()
+    }
+    /// 划线
+    func polyline() -> MKPolyline {
+        var coords = [CLLocationCoordinate2D]()
+        for var i = 0 ; i < self.points?.count ; i += 1 {
+            let userLocation = self.points!.objectAtIndex(i) as! CLLocation
+            let coor = userLocation.coordinate
+            coords.append(coor)
+        }
+        return MKPolyline(coordinates: &coords, count: self.points!.count)
     }
     
     

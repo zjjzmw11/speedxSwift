@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import MapKit
 
-
-class RidingVC: BaseViewController {
+class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate {
 
     /// 时间(t)
     var timeLabel : UILabel?
@@ -31,7 +31,14 @@ class RidingVC: BaseViewController {
     
     let spacing = (kScreenHeight - 100 - 340 - 30)/3.0
     
-    
+    /// 骑行管理单例
+    var locationManager = CyclingManager.getCyclingManager()
+    /// 当前坐标点
+    var currentCLLocation : CLLocation?
+    /// 点数组
+    var points : NSMutableArray?
+    /// 定时器
+    var myTimer : NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +46,9 @@ class RidingVC: BaseViewController {
         // 初始化UI
         self.initMyView()
         
-        
-        
-        
     }
-    
+
+
     /// 初始化UI 
     func initMyView() {
         // 时间(t)
