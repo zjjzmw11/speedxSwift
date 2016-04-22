@@ -29,6 +29,9 @@ class RidingVC: BaseViewController {
     var startOrPauseButton : UIButton?
     var mapButton : UIButton?
     
+    let spacing = (kScreenHeight - 100 - 340 - 30)/3.0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +56,7 @@ class RidingVC: BaseViewController {
         self.view.addSubview(timeValueLabel!)
         
         // 实时速度(km/h)
-        speedLabel = Tool.initALabel(CGRectMake(0, timeValueLabel!.bottom() + 50, kScreenWidth, 20), textString: "实时速度(km/h)", font: UIFont.boldSystemFontOfSize(16), textColor: UIColor.whiteColor())
+        speedLabel = Tool.initALabel(CGRectMake(0, timeValueLabel!.bottom() + spacing, kScreenWidth, 20), textString: "实时速度(km/h)", font: UIFont.boldSystemFontOfSize(16), textColor: UIColor.whiteColor())
         speedLabel?.textAlignment = .Center
         self.view.addSubview(speedLabel!)
         // 实时速度值 0.00
@@ -62,7 +65,7 @@ class RidingVC: BaseViewController {
         self.view.addSubview(speedValueLabel!)
         
         // 里程(km)
-        distanceLabel = Tool.initALabel(CGRectMake(0, speedValueLabel!.bottom() + 50, kScreenWidth, 20), textString: "里程(km)", font: UIFont.boldSystemFontOfSize(16), textColor: UIColor.whiteColor())
+        distanceLabel = Tool.initALabel(CGRectMake(0, speedValueLabel!.bottom() + spacing, kScreenWidth, 20), textString: "里程(km)", font: UIFont.boldSystemFontOfSize(16), textColor: UIColor.whiteColor())
         distanceLabel?.textAlignment = .Center
         self.view.addSubview(distanceLabel!)
         // 里程值 0.00
@@ -71,7 +74,7 @@ class RidingVC: BaseViewController {
         self.view.addSubview(distanceValueLabel!)
 
         /// 完成、启动/恢复、地图 三个按钮
-        doneButton = Tool.initAButton(CGRectMake(20, kScreenHeight - 120, 80, 80), titleString: "", font: UIFont.boldSystemFontOfSize(12), textColor: UIColor.clearColor(), bgImage: UIImage.init())
+        doneButton = Tool.initAButton(CGRectMake(20, kScreenHeight - 100, 80, 80), titleString: "", font: UIFont.boldSystemFontOfSize(12), textColor: UIColor.clearColor(), bgImage: UIImage.init())
         doneButton?.setImage(UIImage.init(named: "riding_done"), forState: UIControlState.Normal)
         self.view.addSubview(doneButton!)
         doneButton?.addTarget(self, action: #selector(RidingVC.doneAction), forControlEvents: UIControlEvents.TouchUpInside)
