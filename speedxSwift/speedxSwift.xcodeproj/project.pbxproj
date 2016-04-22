@@ -36,6 +36,8 @@
 		FF9000FD1CC8D98600ED3D3C /* ClubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000F81CC8D98600ED3D3C /* ClubVC.swift */; };
 		FF9000FF1CC8E85B00ED3D3C /* UIView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9000FE1CC8E85B00ED3D3C /* UIView+Util.swift */; };
 		FF9001021CC9BA5400ED3D3C /* RidingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001011CC9BA5400ED3D3C /* RidingVC.swift */; };
+		FF9001061CCA03B900ED3D3C /* CyclingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001051CCA03B900ED3D3C /* CyclingManager.swift */; };
+		FF9001081CCA096E00ED3D3C /* CyclingMapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		FF9000F81CC8D98600ED3D3C /* ClubVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClubVC.swift; sourceTree = "<group>"; };
 		FF9000FE1CC8E85B00ED3D3C /* UIView+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Util.swift"; sourceTree = "<group>"; };
 		FF9001011CC9BA5400ED3D3C /* RidingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidingVC.swift; sourceTree = "<group>"; };
+		FF9001051CCA03B900ED3D3C /* CyclingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclingManager.swift; sourceTree = "<group>"; };
+		FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclingMapViewVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				FF9001011CC9BA5400ED3D3C /* RidingVC.swift */,
+				FF9001051CCA03B900ED3D3C /* CyclingManager.swift */,
+				FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */,
 			);
 			path = Bike;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF9001081CCA096E00ED3D3C /* CyclingMapViewVC.swift in Sources */,
 				FF82DC921CC8852B00064A17 /* UIImage+Extension.swift in Sources */,
 				FF82DC8D1CC8852B00064A17 /* NSDate+Extension.swift in Sources */,
 				FF82DC8E1CC8852B00064A17 /* String+Extension.swift in Sources */,
@@ -344,6 +351,7 @@
 				FF9000FD1CC8D98600ED3D3C /* ClubVC.swift in Sources */,
 				FF9000F31CC8D79A00ED3D3C /* Public.swift in Sources */,
 				FF82DC8C1CC8852B00064A17 /* NetworkTool.swift in Sources */,
+				FF9001061CCA03B900ED3D3C /* CyclingManager.swift in Sources */,
 				FF9000F11CC8D79A00ED3D3C /* CustomTabBar.swift in Sources */,
 				FF82DC8A1CC8852B00064A17 /* GlobalDefine.swift in Sources */,
 				FF9000FC1CC8D98600ED3D3C /* MoreVC.swift in Sources */,

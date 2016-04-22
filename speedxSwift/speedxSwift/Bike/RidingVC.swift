@@ -104,6 +104,9 @@ class RidingVC: BaseViewController {
     /// 地图方法
     func mapAction() {
         print("地图")
+        let detailVC = CyclingMapViewVC()
+        self.presentViewController(detailVC, animated: true, completion: nil)
+
         
     }
 }
