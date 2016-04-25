@@ -7,29 +7,41 @@
 //
 
 import UIKit
+import Alamofire
 
 class ClubVC: BaseViewController {
-
+    
+    let BaiduURL = kHOME_TOPIC_LIST_URL
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "俱乐部"
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        //网络请求
+        self .reloadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func reloadData(){
+    
+        Alamofire.request(.POST, BaiduURL, parameters:nil ).responseJSON {response in
+            
+            switch response.result {
+            case .Success:
+                //把得到的JSON数据转为字典
+                if let j = response.result.value as? NSDictionary{
+                    //获取字典里面的key为数组
+                    let Items = j.valueForKey("result")as! NSArray
+                    //便利数组得到每一个字典模型
+                    for dict in Items{
+                        
+                        print(dict)
+                    }
+                    
+                }
+            case .Failure(let error):
+                
+                print(error)
+            }
+        }
     }
-    */
-
 }

@@ -1,15 +1,26 @@
 //
-//  NetworkTool.swift
-//  PinGo
+//  RequestBaseManager.swift
+//  speedxSwift
 //
-//  Created by GaoWanli on 16/1/16.
-//  Copyright © 2016年 GWL. All rights reserved.
+//  Created by speedx on 16/4/25.
+//  Copyright © 2016年 speedx. All rights reserved.
 //
 
-import UIKit
 import Alamofire
 
-class NetworkTool: NSObject {
+let kNetwork_Invalid_Code   =   -3010
+let kHttp_Error_Code        =   -3020
+let kSocial_Login_Failed    =   -3030
+
+let kResponse_Code_Key      =   "code"
+let kResponse_Message_Key   =   "message"
+let kResponse_Result_Key    =   "result"
+
+//let kNetwork_Invalid_Block : (Bool,String)
+
+
+class RequestBaseManager: NSObject {
+
     /**
      *  请求 JSON
      *
@@ -31,4 +42,6 @@ class NetworkTool: NSObject {
             }
         }
     }
+
+    
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		734E749707E753628F221FAD /* Pods_speedxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FECDD15EF68CF3BB798E017 /* Pods_speedxSwift.framework */; };
+		FF2632231CCE23B300F515CA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2632221CCE23B300F515CA /* Alamofire.framework */; };
 		FF82DC651CC86FC300064A17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC641CC86FC300064A17 /* AppDelegate.swift */; };
 		FF82DC6C1CC86FC300064A17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF82DC6B1CC86FC300064A17 /* Assets.xcassets */; };
 		FF82DC871CC8852B00064A17 /* BigYoungMediumGB2.0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF82DC771CC8852B00064A17 /* BigYoungMediumGB2.0.ttf */; };
@@ -39,12 +40,18 @@
 		FF9001061CCA03B900ED3D3C /* CyclingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001051CCA03B900ED3D3C /* CyclingManager.swift */; };
 		FF9001081CCA096E00ED3D3C /* CyclingMapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */; };
 		FF90010A1CCDAFA100ED3D3C /* AsyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001091CCDAFA100ED3D3C /* AsyncTest.swift */; };
+		FFC196C61CCE262600B483C1 /* RequestBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC196C51CCE262600B483C1 /* RequestBaseManager.swift */; };
+		FFC196C81CCE263700B483C1 /* Async.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC196C71CCE263700B483C1 /* Async.framework */; };
+		FFC196CA1CCE263A00B483C1 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC196C91CCE263A00B483C1 /* Haneke.framework */; };
+		FFC196CC1CCE263D00B483C1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC196CB1CCE263D00B483C1 /* SwiftyJSON.framework */; };
+		FFC196CE1CCE264100B483C1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC196CD1CCE264100B483C1 /* Realm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4FECDD15EF68CF3BB798E017 /* Pods_speedxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_speedxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B1B150642A92232B5557CF /* Pods-speedxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speedxSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-speedxSwift/Pods-speedxSwift.release.xcconfig"; sourceTree = "<group>"; };
 		C54B64C47507714E096F8B48 /* Pods-speedxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-speedxSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-speedxSwift/Pods-speedxSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		FF2632221CCE23B300F515CA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/speedxSwift-dmtbjqynvshxzcedtnbmspurnhfn/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		FF82DC611CC86FC300064A17 /* speedxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = speedxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF82DC641CC86FC300064A17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF82DC6B1CC86FC300064A17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +86,11 @@
 		FF9001051CCA03B900ED3D3C /* CyclingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclingManager.swift; sourceTree = "<group>"; };
 		FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclingMapViewVC.swift; sourceTree = "<group>"; };
 		FF9001091CCDAFA100ED3D3C /* AsyncTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncTest.swift; path = speedxSwift/Bike/AsyncTest.swift; sourceTree = SOURCE_ROOT; };
+		FFC196C51CCE262600B483C1 /* RequestBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestBaseManager.swift; path = speedxSwift/Bike/RequestBaseManager.swift; sourceTree = SOURCE_ROOT; };
+		FFC196C71CCE263700B483C1 /* Async.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Async.framework; path = "../../../Library/Developer/Xcode/DerivedData/speedxSwift-dmtbjqynvshxzcedtnbmspurnhfn/Build/Products/Debug-iphoneos/Async.framework"; sourceTree = "<group>"; };
+		FFC196C91CCE263A00B483C1 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = "../../../Library/Developer/Xcode/DerivedData/speedxSwift-dmtbjqynvshxzcedtnbmspurnhfn/Build/Products/Debug-iphoneos/Haneke.framework"; sourceTree = "<group>"; };
+		FFC196CB1CCE263D00B483C1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/speedxSwift-dmtbjqynvshxzcedtnbmspurnhfn/Build/Products/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		FFC196CD1CCE264100B483C1 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../Library/Developer/Xcode/DerivedData/speedxSwift-dmtbjqynvshxzcedtnbmspurnhfn/Build/Products/Debug-iphoneos/Realm.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +98,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC196CE1CCE264100B483C1 /* Realm.framework in Frameworks */,
+				FFC196CC1CCE263D00B483C1 /* SwiftyJSON.framework in Frameworks */,
+				FFC196CA1CCE263A00B483C1 /* Haneke.framework in Frameworks */,
+				FFC196C81CCE263700B483C1 /* Async.framework in Frameworks */,
+				FF2632231CCE23B300F515CA /* Alamofire.framework in Frameworks */,
 				734E749707E753628F221FAD /* Pods_speedxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +113,11 @@
 		1FAAD451A40334932D1D24A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FFC196CD1CCE264100B483C1 /* Realm.framework */,
+				FFC196CB1CCE263D00B483C1 /* SwiftyJSON.framework */,
+				FFC196C91CCE263A00B483C1 /* Haneke.framework */,
+				FFC196C71CCE263700B483C1 /* Async.framework */,
+				FF2632221CCE23B300F515CA /* Alamofire.framework */,
 				4FECDD15EF68CF3BB798E017 /* Pods_speedxSwift.framework */,
 			);
 			name = Frameworks;
@@ -162,11 +184,11 @@
 		FF82DC781CC8852B00064A17 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				FF82DC7D1CC8852B00064A17 /* NetworkTool.swift */,
+				FF82DC7C1CC8852B00064A17 /* NetworkResponse.swift */,
 				FF82DC791CC8852B00064A17 /* Array+Extension.swift */,
 				FF82DC7A1CC8852B00064A17 /* DHButton.swift */,
 				FF82DC7B1CC8852B00064A17 /* GlobalDefine.swift */,
-				FF82DC7C1CC8852B00064A17 /* NetworkResponse.swift */,
-				FF82DC7D1CC8852B00064A17 /* NetworkTool.swift */,
 				FF82DC7E1CC8852B00064A17 /* NSDate+Extension.swift */,
 				FF9000FE1CC8E85B00ED3D3C /* UIView+Util.swift */,
 				FF82DC7F1CC8852B00064A17 /* String+Extension.swift */,
@@ -184,6 +206,7 @@
 		FF82DC961CC8855500064A17 /* framework */ = {
 			isa = PBXGroup;
 			children = (
+				FFC196C51CCE262600B483C1 /* RequestBaseManager.swift */,
 			);
 			path = framework;
 			sourceTree = "<group>";
@@ -355,6 +378,7 @@
 				FF9000F31CC8D79A00ED3D3C /* Public.swift in Sources */,
 				FF82DC8C1CC8852B00064A17 /* NetworkTool.swift in Sources */,
 				FF9001061CCA03B900ED3D3C /* CyclingManager.swift in Sources */,
+				FFC196C61CCE262600B483C1 /* RequestBaseManager.swift in Sources */,
 				FF9000F11CC8D79A00ED3D3C /* CustomTabBar.swift in Sources */,
 				FF82DC8A1CC8852B00064A17 /* GlobalDefine.swift in Sources */,
 				FF9000FC1CC8D98600ED3D3C /* MoreVC.swift in Sources */,
