@@ -38,6 +38,7 @@
 		FF9001021CC9BA5400ED3D3C /* RidingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001011CC9BA5400ED3D3C /* RidingVC.swift */; };
 		FF9001061CCA03B900ED3D3C /* CyclingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001051CCA03B900ED3D3C /* CyclingManager.swift */; };
 		FF9001081CCA096E00ED3D3C /* CyclingMapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */; };
+		FF90010A1CCDAFA100ED3D3C /* AsyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001091CCDAFA100ED3D3C /* AsyncTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		FF9001011CC9BA5400ED3D3C /* RidingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidingVC.swift; sourceTree = "<group>"; };
 		FF9001051CCA03B900ED3D3C /* CyclingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclingManager.swift; sourceTree = "<group>"; };
 		FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclingMapViewVC.swift; sourceTree = "<group>"; };
+		FF9001091CCDAFA100ED3D3C /* AsyncTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncTest.swift; path = speedxSwift/Bike/AsyncTest.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 		FF9000ED1CC8D77000ED3D3C /* test */ = {
 			isa = PBXGroup;
 			children = (
+				FF9001091CCDAFA100ED3D3C /* AsyncTest.swift */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				FF9000FA1CC8D98600ED3D3C /* RankVC.swift in Sources */,
 				FF82DC8B1CC8852B00064A17 /* NetworkResponse.swift in Sources */,
 				FF82DC941CC8852B00064A17 /* UIStoryboard+Extension.swift in Sources */,
+				FF90010A1CCDAFA100ED3D3C /* AsyncTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
