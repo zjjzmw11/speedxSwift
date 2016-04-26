@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+
 
 class ClubVC: BaseViewController {
     
@@ -16,32 +16,25 @@ class ClubVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "俱乐部"
-        
-        //网络请求
-        self .reloadData()
     }
     
-    func reloadData(){
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //网络请求
+        self.reloadData()
+    }
     
-        Alamofire.request(.POST, BaiduURL, parameters:nil ).responseJSON {response in
-            
-            switch response.result {
-            case .Success:
-                //把得到的JSON数据转为字典
-                if let j = response.result.value as? NSDictionary{
-                    //获取字典里面的key为数组
-                    let Items = j.valueForKey("result")as! NSArray
-                    //便利数组得到每一个字典模型
-                    for dict in Items{
-                        
-                        print(dict)
-                    }
-                    
-                }
-            case .Failure(let error):
-                
-                print(error)
-            }
+    
+    func reloadData(){
+//        http://api.map.baidu.com/telematics/v3/weather?location=嘉兴&output=json&ak=5slgyqGDENN7Sy7pw29IUvrZ
+        let url = "http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=yourkey"
+        
+        RequestBaseManager .baseRequestJson(.GET, urlString: url) { (isSuccessed, code, jsonValue) in
+            print("isSuccessed====\(isSuccessed)")
+            print("code====\(code)")
+            print("jsonValue====\(jsonValue)")
+
         }
+    
     }
 }

@@ -16,32 +16,32 @@ let kResponse_Code_Key      =   "code"
 let kResponse_Message_Key   =   "message"
 let kResponse_Result_Key    =   "result"
 
-//let kNetwork_Invalid_Block : (Bool,String)
-
 
 class RequestBaseManager: NSObject {
 
-    /**
-     *  请求 JSON
-     *
-     *  @param method        HTTP 请求方法
-     *  @param URLString     URL字符串
-     *  @param parameters    参数字典
-     *  @param completion    完成回调，返回NetworkResponse
-     */
-    class func requestJSON(method: Alamofire.Method, URLString: String, parameters: [String: AnyObject]? = nil, completion:(response: NetworkResponse?) -> ()) {
-        Alamofire.request(method, URLString, parameters: parameters, encoding: .URL, headers: nil).responseJSON { (JSON) in
-            switch JSON.result {
-            case .Success:
-                if let value = JSON.result.value {
-                    let nResponse = NetworkResponse(dict: value as! [String : AnyObject])
-                    completion(response: nResponse)
-                }
-            case .Failure(let error):
-                debugPrint(error)
-            }
-        }
+    static let requestBaseManager : RequestBaseManager = RequestBaseManager()
+    class func defaultManager() -> RequestBaseManager {
+        return requestBaseManager
     }
+    
+    required override init() {
+        super.init()
+        
+    }
+    
+    
+    class func baseRequestJson(method:Alamofire.Method,urlString:String,parameters:[String:AnyObject]? = nil,completion:(isSuccessed:Bool,code:Int?,jsonValue:AnyObject?) -> ()) {
+        Alamofire.request(method, urlString, parameters: parameters,encoding: .URL,headers: nil).responseJSON { response in
+            // 返回是否成功的bool , 状态码 int , json 数据结果
+            // 如果状态码是200  isSuccess 是失败的话，是因为返回的不是json数据
+            completion(isSuccessed:response.result.isSuccess,code:response.response?.statusCode,jsonValue:response.result.value)
+        }
+        
+    }
+    
+
+    
+    
 
     
 }
