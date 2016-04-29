@@ -105,9 +105,14 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,U
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if buttonIndex == 0 {
             print("继续骑行")
+            cycManager.myTimer?.invalidate()
+            cycManager.myTimer = nil
+            cycManager.myTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: cycManager, selector: #selector(myTimerAction), userInfo: nil, repeats: true)
         }else{
             print("完成骑行")
             cycManager.cyclingType = 5 //完成
+            cycManager.myTimer?.invalidate()
+            cycManager.myTimer = nil
             cycManager.locationManager.stopUpdatingLocation() // 关闭定位
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -116,6 +121,8 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,U
     func startOrPauseAction() {
         print("启动骑行")
         cycManager.cyclingType = 1 // 启动
+        cycManager.myTimer?.invalidate()
+        cycManager.myTimer = nil
         cycManager.myTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: cycManager, selector: #selector(myTimerAction), userInfo: nil, repeats: true)
 
         cycManager.locationManager.startUpdatingLocation() // 开启定位
@@ -137,7 +144,7 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,U
     func didUpdateUIAction(){
         print("更新速度、距离、时间")
         /// 刷新 速度、距离、时间
-        self.speedValueLabel?.text = String(format: "%.2f",cycManager.speed!)
+        self.speedValueLabel?.text = String(format: "%.2f",cycManager.speed!*3.6)
         self.distanceValueLabel?.text = String(format: "%.2f",cycManager.distance!/1000.0)
         
         // 时、分、秒

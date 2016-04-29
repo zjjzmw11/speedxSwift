@@ -33,6 +33,14 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
         self .initMyMapView()
         // 设置位置更新的代理-------
         self.cycManager.cycDelegate = self
+        
+        
+        // 划线----------刚进来的时候划线一次
+        self.routeLine = polyline()
+        if self.routeLine != nil {
+            self.mapView.addOverlay(self.routeLine!)
+        }
+
     }
     
     override func viewWillAppear(animated: Bool) {
