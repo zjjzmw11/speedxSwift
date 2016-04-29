@@ -23,7 +23,6 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     var isBackgroundFlag : Bool?
     
     
-    
     /// 骑行管理单例
     static let cyclingManager:CyclingManager = CyclingManager()
     class func getCyclingManager() -> CyclingManager {
@@ -52,13 +51,17 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("定位更新了")
         if locations.last != nil {
-            /// 地球 转成 火星
-            let coor = CLLocationCoordinate2D.init(latitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLat, longitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLon);
-            currentCLLocation = CLLocation.init(latitude: coor.latitude, longitude: coor.longitude)
-            
+            // 速度是负数 证明不可用
+            if locations.last!.speed > 1.0 {
+                /// 地球 转成 火星
+                let coor = CLLocationCoordinate2D.init(latitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLat, longitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLon);
+                currentCLLocation = CLLocation.init(latitude: coor.latitude, longitude: coor.longitude)
+                self.points?.addObject(currentCLLocation!)
+            }
+
             // 地图更新代理
             if self.cycDelegate != nil {
-                self.cycDelegate!.didUpdateAction(currentCLLocation!)
+                self.cycDelegate!.didUpdateAction(currentCLLocation!,pointArray: self.points!)
             }
         }
     }
@@ -68,7 +71,7 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
 /// 骑行代理
 protocol CyclingManagerProtocol {
     /// 代理方法 -- 更新位置的方法
-    func didUpdateAction(loca : CLLocation)
+    func didUpdateAction(loca : CLLocation, pointArray: NSMutableArray)
         
 }
 

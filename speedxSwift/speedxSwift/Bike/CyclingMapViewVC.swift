@@ -23,8 +23,6 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
     var currentCLLocation : CLLocation?
     /// 当前线
     var routeLine : MKPolyline?
-    /// 点数组
-    var points : NSMutableArray?
     /// 骑行管理
     var cycManager = CyclingManager.getCyclingManager()
     
@@ -79,17 +77,13 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
         }
     }
     /// ----------代理方法---位置更新
-    func didUpdateAction(loca: CLLocation) {
-        if (self.isInCurrentPage! && !CyclingManager.getCyclingManager().isBackgroundFlag!) {// true的话
+    func didUpdateAction(loca : CLLocation, pointArray: NSMutableArray){
+        if (self.isInCurrentPage! && !cycManager.isBackgroundFlag!) {// true的话
             print("更新地图划线")
         }else{
             return
         }
         self.currentCLLocation = loca
-        if self.points == nil {
-            self.points = NSMutableArray()
-        }
-        self.points?.addObject(loca)
         // 划线
         self.routeLine = polyline()
         if self.routeLine != nil {
@@ -112,14 +106,14 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
     func polyline() -> MKPolyline {
         var coords = [CLLocationCoordinate2D]()
         var max : Int
-        max = (self.points?.count)!
+        max = (cycManager.points?.count)!
         for i in 0 ..< max {
-            let userLocation = self.points!.objectAtIndex(i) as! CLLocation
+            let userLocation = cycManager.points!.objectAtIndex(i) as! CLLocation
             let coor = userLocation.coordinate
             coords.append(coor)
         }
         
-        return MKPolyline(coordinates: &coords, count: self.points!.count)
+        return MKPolyline(coordinates: &coords, count: cycManager.points!.count)
     }
 }
 
