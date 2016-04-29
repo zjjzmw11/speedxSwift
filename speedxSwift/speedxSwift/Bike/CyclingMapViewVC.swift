@@ -11,6 +11,8 @@ import UIKit
 
 class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProtocol {
 
+    /// 是否正在当前页面 ------ 决定是否更新地图---------------声明的时候必须加 ？ 或者 ！ 否则 报错
+    var isInCurrentPage : Bool?
     /// 当前地图
     var mapView : MKMapView!
     /// 回到当前点的按钮
@@ -26,14 +28,22 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
     /// 骑行管理
     var cycManager = CyclingManager.getCyclingManager()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.isInCurrentPage = true
         // 初始化地图UI
         self .initMyMapView()
         // 设置位置更新的代理-------
         self.cycManager.cycDelegate = self
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.isInCurrentPage = true
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.isInCurrentPage = false
     }
     // 初始化地图 UI 
     func initMyMapView() {
@@ -45,7 +55,6 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
         // 划线 rendererForOverlay 代理方法执行，设置颜色。粗细 MKMapViewDelegate
         self.mapView.delegate = self
         self.view.addSubview(mapView!)
-        
         
         // 当前按钮
         currentButton = Tool.initAButton(CGRectMake(20, kScreenHeight - 100, 80, 80), titleString: "", font: UIFont.boldSystemFontOfSize(12), textColor: UIColor.clearColor(), bgImage: UIImage.init())
@@ -71,9 +80,12 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
     }
     /// ----------代理方法---位置更新
     func didUpdateAction(loca: CLLocation) {
-        print("更新位置----地图---------代理传过来的")
+        if (self.isInCurrentPage!) {// true的话
+            print("更新地图划线")
+        }else{
+            return
+        }
         self.currentCLLocation = loca
-        
         if self.points == nil {
             self.points = NSMutableArray()
         }
@@ -99,15 +111,16 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
     /// 划线
     func polyline() -> MKPolyline {
         var coords = [CLLocationCoordinate2D]()
-        for var i = 0 ; i < self.points?.count ; i += 1 {
+        var max : Int
+        max = (self.points?.count)!
+        for i in 0 ..< max {
             let userLocation = self.points!.objectAtIndex(i) as! CLLocation
             let coor = userLocation.coordinate
             coords.append(coor)
         }
+        
         return MKPolyline(coordinates: &coords, count: self.points!.count)
     }
-    
-    
 }
 
 /// 设置地图缩放等级
@@ -175,36 +188,5 @@ extension MKMapView {
         return span
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

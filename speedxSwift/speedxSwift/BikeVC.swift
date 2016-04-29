@@ -57,27 +57,3 @@ class BikeVC: BaseViewController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
