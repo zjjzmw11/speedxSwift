@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate {
+class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,UIAlertViewDelegate{
 
     /// 时间(t)
     var timeLabel : UILabel?
@@ -32,7 +32,7 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     let spacing = (kScreenHeight - 100 - 340 - 30)/3.0
     
     /// 骑行管理单例
-    var locationManager = CyclingManager.getCyclingManager()
+    var cycManager = CyclingManager.getCyclingManager()
     /// 当前坐标点
     var currentCLLocation : CLLocation?
     /// 点数组
@@ -98,20 +98,31 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
     /// 完成骑行方法
     func doneAction() {
-        print("完成骑行")
-        self.dismissViewControllerAnimated(true, completion: nil)
+        let alertV = UIAlertView.init(title: "确定结束骑行?", message: "", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "确定")
+        alertV.show()
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 0 {
+            print("继续骑行")
+        }else{
+            print("完成骑行")
+            cycManager.cyclingType = 5 //完成
+            cycManager.locationManager.stopUpdatingLocation() // 关闭定位
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     /// 启动或者暂停方法
     func startOrPauseAction() {
         print("启动骑行")
-        
+        cycManager.cyclingType = 1 // 启动
+        cycManager.locationManager.startUpdatingLocation() // 开启定位
     }
     /// 地图方法
     func mapAction() {
         print("地图")
         let detailVC = CyclingMapViewVC()
         self.presentViewController(detailVC, animated: true, completion: nil)
-
         
     }
 }

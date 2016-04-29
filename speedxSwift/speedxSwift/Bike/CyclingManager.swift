@@ -21,8 +21,8 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     var cycDelegate : CyclingManagerProtocol?
     /// 是否在后台 true 是在后台   false : 在前台
     var isBackgroundFlag : Bool?
-    
-    
+    /// 是否启动骑行 0：未开始  1：启动 2：自动暂停 3：手动暂停（暂时不做）4:继续骑行 5：结束骑行 6：闪退了
+    var cyclingType : Int?
     /// 骑行管理单例
     static let cyclingManager:CyclingManager = CyclingManager()
     class func getCyclingManager() -> CyclingManager {
@@ -33,6 +33,7 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     required override init() {
         super.init()
         self.locationManager = CLLocationManager()
+        self.cyclingType = 0    // 未开始
         // 初始化定位管理器
         self.locationManager.delegate = self
         // 请求定位权限
@@ -40,7 +41,8 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
             self.locationManager.requestAlwaysAuthorization()
         }
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.startUpdatingLocation() //开始定位
+        self.locationManager.startUpdatingLocation() //开始定位---刚启动应用需要定位当前位置。
+//        self.locationManager.startUpdatingHeading() // 获取方向的时候用的，暂时不需要
         // 初始化点数组
         self.points = NSMutableArray()
         // 初始化自己的代理
@@ -52,20 +54,23 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
         print("定位更新了")
         if locations.last != nil {
             // 速度是负数 证明不可用
-            if locations.last!.speed > 1.0 {
+            if locations.last!.speed > 1.0 {// 当前点才有意义 定位成功当前位置，才有可能stop定位
                 /// 地球 转成 火星
                 let coor = CLLocationCoordinate2D.init(latitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLat, longitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLon);
                 currentCLLocation = CLLocation.init(latitude: coor.latitude, longitude: coor.longitude)
                 self.points?.addObject(currentCLLocation!)
-            }
-
-            // 地图更新代理
-            if self.cycDelegate != nil {
-                self.cycDelegate!.didUpdateAction(currentCLLocation!,pointArray: self.points!)
+                
+                if self.cyclingType == 1 || self.cyclingType == 4 {// 启动、或者继续的时候执行
+                    // 地图更新代理
+                    if self.cycDelegate != nil {
+                        self.cycDelegate!.didUpdateAction(currentCLLocation!,pointArray: self.points!)
+                    }
+                }else{//没有在骑行
+                    self.locationManager.stopUpdatingLocation()
+                }
             }
         }
     }
-
 }
 
 /// 骑行代理

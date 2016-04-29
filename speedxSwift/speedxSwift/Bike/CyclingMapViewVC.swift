@@ -112,9 +112,33 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
             let coor = userLocation.coordinate
             coords.append(coor)
         }
-        
+        self.startAnn()
         return MKPolyline(coordinates: &coords, count: cycManager.points!.count)
     }
+    /// 添加起点的大头针
+    func startAnn() {
+        let startLocation = cycManager.points?.firstObject!
+        //初始化一个大头针类
+        let ann = MyAnnotation.init()
+        ann.tag = 1
+        //设置大头针坐标
+        ann.coordinate=CLLocationCoordinate2DMake(startLocation!.coordinate.latitude, startLocation!.coordinate.longitude);
+        self.mapView.addAnnotation(ann)
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation .isKindOfClass(MyAnnotation.classForCoder()) {
+            let annView = MKAnnotationView.init(annotation: annotation, reuseIdentifier: "startAnn")
+            annView.image = UIImage.init(named:"Start-Marker")
+            annView.frame = CGRectMake(0, 0, 22, 22)
+            return annView;
+        }
+        return nil
+    }
+}
+
+class MyAnnotation: MKPointAnnotation {
+    var tag : Int?
 }
 
 /// 设置地图缩放等级
