@@ -68,6 +68,10 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("定位更新了")
         if locations.last != nil {
+            self.speed = locations.last!.speed
+            if self.speed <= 0 {
+                self.speed = 0.00
+            }
             // 速度是负数 证明不可用
             if locations.last!.speed > 1.0 {// 当前点才有意义 定位成功当前位置，才有可能stop定位
                 /// 地球 转成 火星

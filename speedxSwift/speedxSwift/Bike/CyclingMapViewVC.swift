@@ -129,6 +129,9 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
     }
     /// 添加起点的大头针
     func startAnn() {
+        if cycManager.points?.count == 0 {
+            return
+        }
         let startLocation = cycManager.points?.firstObject!
         //初始化一个大头针类
         let ann = MyAnnotation.init()
