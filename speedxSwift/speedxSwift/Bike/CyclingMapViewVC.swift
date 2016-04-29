@@ -80,7 +80,7 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
     }
     /// ----------代理方法---位置更新
     func didUpdateAction(loca: CLLocation) {
-        if (self.isInCurrentPage!) {// true的话
+        if (self.isInCurrentPage! && !CyclingManager.getCyclingManager().isBackgroundFlag!) {// true的话
             print("更新地图划线")
         }else{
             return

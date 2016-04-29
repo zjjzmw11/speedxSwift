@@ -19,6 +19,8 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     var points : NSMutableArray?
     /// ------自己代理属性
     var cycDelegate : CyclingManagerProtocol?
+    /// 是否在后台 true 是在后台   false : 在前台
+    var isBackgroundFlag : Bool?
     
     
     
