@@ -91,6 +91,10 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
         }
     }
     
+    func didUpdateUIAction() {
+        
+    }
+    
     // -----------------------------------划线---------------------------------
     /// 划线的颜色和宽度
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {

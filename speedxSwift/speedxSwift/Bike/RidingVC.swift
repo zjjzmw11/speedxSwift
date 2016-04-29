@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,UIAlertViewDelegate{
+class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,UIAlertViewDelegate,CyclingManagerProtocol{
 
     /// 时间(t)
     var timeLabel : UILabel?
@@ -45,9 +45,9 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,U
         self.navigationController?.navigationBarHidden = true
         // 初始化UI
         self.initMyView()
-        
+        // 设置位置更新的代理-------
+        self.cycManager.cycUIDelegate = self
     }
-
 
     /// 初始化UI 
     func initMyView() {
@@ -116,13 +116,38 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,U
     func startOrPauseAction() {
         print("启动骑行")
         cycManager.cyclingType = 1 // 启动
+        cycManager.myTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: cycManager, selector: #selector(myTimerAction), userInfo: nil, repeats: true)
+
         cycManager.locationManager.startUpdatingLocation() // 开启定位
     }
+    
+    func myTimerAction() {
+        print("没有的方法")
+    }
+    
     /// 地图方法
     func mapAction() {
         print("地图")
         let detailVC = CyclingMapViewVC()
         self.presentViewController(detailVC, animated: true, completion: nil)
+        
+    }
+    
+    /// ----------代理方法---位置更新
+    func didUpdateUIAction(){
+        print("更新速度、距离、时间")
+        /// 刷新 速度、距离、时间
+        self.speedValueLabel?.text = String(format: "%.2f",cycManager.speed!)
+        self.distanceValueLabel?.text = String(format: "%.2f",cycManager.distance!/1000.0)
+        
+        // 时、分、秒
+        let h = cycManager.time!/3600
+        let m = cycManager.time!%3600/60
+        let s = cycManager.time!%3600%60
+        self.timeValueLabel?.text = String(format: "%d:%d:%d",h,m,s)
+
+    }
+    func didUpdateAction(loca: CLLocation, pointArray: NSMutableArray) {
         
     }
 }

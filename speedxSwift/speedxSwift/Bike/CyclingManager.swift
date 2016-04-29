@@ -17,7 +17,19 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     var locationManager : CLLocationManager!
     /// 点数组
     var points : NSMutableArray?
+    ///--------------------------速度、里程、时间、定时器------------------------
+    /// 速度
+    var speed : CLLocationSpeed?
+    /// 里程
+    var distance : CLLocationDistance?
+    /// 时间
+    var time : UInt?
+    /// 定时器
+    var myTimer : NSTimer?
+    
+    // ----------------------------------------------------
     /// ------自己代理属性
+    var cycUIDelegate : CyclingManagerProtocol?
     var cycDelegate : CyclingManagerProtocol?
     /// 是否在后台 true 是在后台   false : 在前台
     var isBackgroundFlag : Bool?
@@ -34,6 +46,9 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
         super.init()
         self.locationManager = CLLocationManager()
         self.cyclingType = 0    // 未开始
+        self.speed = 0.00
+        self.distance = 0.00
+        self.time = 0
         // 初始化定位管理器
         self.locationManager.delegate = self
         // 请求定位权限
@@ -57,6 +72,18 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
             if locations.last!.speed > 1.0 {// 当前点才有意义 定位成功当前位置，才有可能stop定位
                 /// 地球 转成 火星
                 let coor = CLLocationCoordinate2D.init(latitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLat, longitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLon);
+                if self.cyclingType == 1 || self.cyclingType == 4 {
+                    // -------------- 速度、里程、时间
+                    self.speed = locations.last!.speed
+                    let newLocation = CLLocation.init(latitude: coor.latitude, longitude: coor.longitude)
+                    let meters = newLocation.distanceFromLocation(currentCLLocation!)
+                    self.distance = self.distance! + meters
+                }
+                // 首页UI更新代理
+                if self.cycUIDelegate != nil {
+                    self.cycUIDelegate!.didUpdateUIAction()
+                }
+
                 currentCLLocation = CLLocation.init(latitude: coor.latitude, longitude: coor.longitude)
                 self.points?.addObject(currentCLLocation!)
                 
@@ -71,12 +98,19 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
             }
         }
     }
+     func myTimerAction() {
+        self.time = self.time! + 1
+    }
+    
 }
+
 
 /// 骑行代理
 protocol CyclingManagerProtocol {
     /// 代理方法 -- 更新位置的方法
     func didUpdateAction(loca : CLLocation, pointArray: NSMutableArray)
+    /// 首页的速度、距离、时间等信息
+    func didUpdateUIAction()
         
 }
 
