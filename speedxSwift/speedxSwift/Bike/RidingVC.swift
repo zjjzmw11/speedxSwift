@@ -99,6 +99,7 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     /// 完成骑行方法
     func doneAction() {
         print("完成骑行")
+        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     /// 启动或者暂停方法

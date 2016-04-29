@@ -50,12 +50,11 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("定位更新了")
         if locations.last != nil {
-            currentCLLocation = locations.last!
-            // 设置地图中心
-            //            self.mapView.setCenterCoordinateLevel(currentCLLocation!.coordinate, zoomLevel: 15, animated: true)
-            print("lat= \(currentCLLocation!.coordinate.latitude) log = \(currentCLLocation!.coordinate.longitude)")
+            /// 地球 转成 火星
+            let coor = CLLocationCoordinate2D.init(latitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLat, longitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLon);
+            currentCLLocation = CLLocation.init(latitude: coor.latitude, longitude: coor.longitude)
             
-            
+            // 地图更新代理
             if self.cycDelegate != nil {
                 self.cycDelegate!.didUpdateAction(currentCLLocation!)
             }
