@@ -62,6 +62,7 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
         // 初始化点数组
         self.points = NSMutableArray()
         // 初始化自己的代理
+        
     }
     
     

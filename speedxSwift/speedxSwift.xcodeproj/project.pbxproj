@@ -11,7 +11,6 @@
 		FF2632231CCE23B300F515CA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2632221CCE23B300F515CA /* Alamofire.framework */; };
 		FF82DC651CC86FC300064A17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC641CC86FC300064A17 /* AppDelegate.swift */; };
 		FF82DC6C1CC86FC300064A17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF82DC6B1CC86FC300064A17 /* Assets.xcassets */; };
-		FF82DC871CC8852B00064A17 /* BigYoungMediumGB2.0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FF82DC771CC8852B00064A17 /* BigYoungMediumGB2.0.ttf */; };
 		FF82DC881CC8852B00064A17 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC791CC8852B00064A17 /* Array+Extension.swift */; };
 		FF82DC891CC8852B00064A17 /* DHButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC7A1CC8852B00064A17 /* DHButton.swift */; };
 		FF82DC8A1CC8852B00064A17 /* GlobalDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF82DC7B1CC8852B00064A17 /* GlobalDefine.swift */; };
@@ -46,6 +45,7 @@
 		FFC196CA1CCE263A00B483C1 /* Haneke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC196C91CCE263A00B483C1 /* Haneke.framework */; };
 		FFC196CC1CCE263D00B483C1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC196CB1CCE263D00B483C1 /* SwiftyJSON.framework */; };
 		FFC196CE1CCE264100B483C1 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC196CD1CCE264100B483C1 /* Realm.framework */; };
+		FFCFED411CD8A328000A46F2 /* BebasNeue.otf in Resources */ = {isa = PBXBuildFile; fileRef = FFCFED401CD8A328000A46F2 /* BebasNeue.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +57,6 @@
 		FF82DC641CC86FC300064A17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF82DC6B1CC86FC300064A17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF82DC701CC86FC300064A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF82DC771CC8852B00064A17 /* BigYoungMediumGB2.0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BigYoungMediumGB2.0.ttf; sourceTree = "<group>"; };
 		FF82DC791CC8852B00064A17 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		FF82DC7A1CC8852B00064A17 /* DHButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DHButton.swift; sourceTree = "<group>"; };
 		FF82DC7B1CC8852B00064A17 /* GlobalDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDefine.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		FFC196C91CCE263A00B483C1 /* Haneke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Haneke.framework; path = "../../../Library/Developer/Xcode/DerivedData/speedxSwift-dmtbjqynvshxzcedtnbmspurnhfn/Build/Products/Debug-iphoneos/Haneke.framework"; sourceTree = "<group>"; };
 		FFC196CB1CCE263D00B483C1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/speedxSwift-dmtbjqynvshxzcedtnbmspurnhfn/Build/Products/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		FFC196CD1CCE264100B483C1 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../../Library/Developer/Xcode/DerivedData/speedxSwift-dmtbjqynvshxzcedtnbmspurnhfn/Build/Products/Debug-iphoneos/Realm.framework"; sourceTree = "<group>"; };
+		FFCFED401CD8A328000A46F2 /* BebasNeue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BebasNeue.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +178,7 @@
 		FF82DC761CC8852B00064A17 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				FF82DC771CC8852B00064A17 /* BigYoungMediumGB2.0.ttf */,
+				FFCFED401CD8A328000A46F2 /* BebasNeue.otf */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF82DC6C1CC86FC300064A17 /* Assets.xcassets in Resources */,
-				FF82DC871CC8852B00064A17 /* BigYoungMediumGB2.0.ttf in Resources */,
+				FFCFED411CD8A328000A46F2 /* BebasNeue.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

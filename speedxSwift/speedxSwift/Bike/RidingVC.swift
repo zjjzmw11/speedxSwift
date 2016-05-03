@@ -94,6 +94,10 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,U
         mapButton?.setImage(UIImage.init(named: "riding_map"), forState: UIControlState.Normal)
         self.view.addSubview(mapButton!)
         mapButton?.addTarget(self, action: #selector(RidingVC.mapAction), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        self.timeValueLabel!.font = UIFont.init(name: kMyFontName, size: 70)!
+        self.speedValueLabel!.font = UIFont.init(name: kMyFontName, size: 110)!
+        self.distanceValueLabel!.font = UIFont.init(name: kMyFontName, size: 70)!
     }
     
     /// 完成骑行方法

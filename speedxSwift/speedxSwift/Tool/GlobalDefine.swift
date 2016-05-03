@@ -24,7 +24,8 @@ let kScreenHeight          = CGRectGetHeight(UIScreen.mainScreen().bounds)
 
 let kCalendar              = NSCalendar.currentCalendar()
 let kDateFormatter         = NSDateFormatter()
-
+/// 自定义字体
+let kMyFontName            = "BebasNeue"
 
 // -------------------------------颜色定义-----------------------------------------
 /// 页面默认背景色、tablView的背景色
