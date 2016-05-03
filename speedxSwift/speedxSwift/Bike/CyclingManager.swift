@@ -55,6 +55,7 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
         if self.locationManager.respondsToSelector(#selector(CLLocationManager.requestAlwaysAuthorization)) {
             self.locationManager.requestAlwaysAuthorization()
         }
+        self.locationManager.pausesLocationUpdatesAutomatically = false
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation() //开始定位---刚启动应用需要定位当前位置。
 //        self.locationManager.startUpdatingHeading() // 获取方向的时候用的，暂时不需要
