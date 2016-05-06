@@ -39,6 +39,8 @@
 		FF9001061CCA03B900ED3D3C /* CyclingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001051CCA03B900ED3D3C /* CyclingManager.swift */; };
 		FF9001081CCA096E00ED3D3C /* CyclingMapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */; };
 		FF90010A1CCDAFA100ED3D3C /* AsyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9001091CCDAFA100ED3D3C /* AsyncTest.swift */; };
+		FF9F4EE51CDC90A200ADED99 /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F4EE41CDC90A200ADED99 /* SampleModel.swift */; };
+		FF9F4EE71CDC90FC00ADED99 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9F4EE61CDC90FC00ADED99 /* ActivityModel.swift */; };
 		FFA114101CD334C900C0E069 /* CoordsTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA1140F1CD334C900C0E069 /* CoordsTransform.swift */; };
 		FFC196C61CCE262600B483C1 /* RequestBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC196C51CCE262600B483C1 /* RequestBaseManager.swift */; };
 		FFC196C81CCE263700B483C1 /* Async.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC196C71CCE263700B483C1 /* Async.framework */; };
@@ -86,6 +88,8 @@
 		FF9001051CCA03B900ED3D3C /* CyclingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclingManager.swift; sourceTree = "<group>"; };
 		FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyclingMapViewVC.swift; sourceTree = "<group>"; };
 		FF9001091CCDAFA100ED3D3C /* AsyncTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsyncTest.swift; path = speedxSwift/Bike/AsyncTest.swift; sourceTree = SOURCE_ROOT; };
+		FF9F4EE41CDC90A200ADED99 /* SampleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
+		FF9F4EE61CDC90FC00ADED99 /* ActivityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		FFA1140F1CD334C900C0E069 /* CoordsTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordsTransform.swift; sourceTree = "<group>"; };
 		FFC196C51CCE262600B483C1 /* RequestBaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestBaseManager.swift; path = speedxSwift/Bike/RequestBaseManager.swift; sourceTree = SOURCE_ROOT; };
 		FFC196C71CCE263700B483C1 /* Async.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Async.framework; path = "../../../Library/Developer/Xcode/DerivedData/speedxSwift-dmtbjqynvshxzcedtnbmspurnhfn/Build/Products/Debug-iphoneos/Async.framework"; sourceTree = "<group>"; };
@@ -238,6 +242,8 @@
 				FF9001011CC9BA5400ED3D3C /* RidingVC.swift */,
 				FF9001051CCA03B900ED3D3C /* CyclingManager.swift */,
 				FF9001071CCA096E00ED3D3C /* CyclingMapViewVC.swift */,
+				FF9F4EE41CDC90A200ADED99 /* SampleModel.swift */,
+				FF9F4EE61CDC90FC00ADED99 /* ActivityModel.swift */,
 			);
 			path = Bike;
 			sourceTree = "<group>";
@@ -371,7 +377,9 @@
 				FFA114101CD334C900C0E069 /* CoordsTransform.swift in Sources */,
 				FF82DC931CC8852B00064A17 /* UINib+Extension.swift in Sources */,
 				FF9000F21CC8D79A00ED3D3C /* LBNvc.swift in Sources */,
+				FF9F4EE71CDC90FC00ADED99 /* ActivityModel.swift in Sources */,
 				FF82DC881CC8852B00064A17 /* Array+Extension.swift in Sources */,
+				FF9F4EE51CDC90A200ADED99 /* SampleModel.swift in Sources */,
 				FF82DC901CC8852B00064A17 /* UIColor+Extension.swift in Sources */,
 				FF9000FB1CC8D98600ED3D3C /* HomeVC.swift in Sources */,
 				FF82DC8F1CC8852B00064A17 /* Tool.swift in Sources */,

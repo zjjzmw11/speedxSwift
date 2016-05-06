@@ -3,3 +3,9 @@
 import UIKit
 
 var str = "Hello, playground"
+
+arc4random()
+
+
+
+

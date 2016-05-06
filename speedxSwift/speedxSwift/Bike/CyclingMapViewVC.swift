@@ -118,21 +118,21 @@ class CyclingMapViewVC: BaseViewController,MKMapViewDelegate,CyclingManagerProto
     func polyline() -> MKPolyline {
         var coords = [CLLocationCoordinate2D]()
         var max : Int
-        max = (cycManager.points?.count)!
+        max = (cycManager.currentActivity.sampleArray?.count)!
         for i in 0 ..< max {
-            let userLocation = cycManager.points!.objectAtIndex(i) as! CLLocation
-            let coor = userLocation.coordinate
+//            let userLocation = cycManager.currentActivity.sampleArray!.objectAtIndex(i).currentCLLocation as CLLocation
+            let coor = cycManager.currentActivity.sampleArray!.objectAtIndex(i).currentCLLocation!!.coordinate
             coords.append(coor)
         }
         self.startAnn()
-        return MKPolyline(coordinates: &coords, count: cycManager.points!.count)
+        return MKPolyline(coordinates: &coords, count: cycManager.currentActivity.sampleArray!.count)
     }
     /// 添加起点的大头针
     func startAnn() {
-        if cycManager.points?.count == 0 {
+        if cycManager.currentActivity.sampleArray?.count == 0 {
             return
         }
-        let startLocation = cycManager.points?.firstObject!
+        let startLocation = cycManager.currentActivity.sampleArray?.firstObject!.currentCLLocation!
         //初始化一个大头针类
         let ann = MyAnnotation.init()
         ann.tag = 1

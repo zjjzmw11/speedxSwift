@@ -11,13 +11,14 @@ import MapKit
 import Realm
 
 class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
-    
+    /// 默认5秒打一个点
+    let kSpaceTime = UInt(5)
     /// 当前坐标点
     var currentCLLocation : CLLocation?
     /// 定位管理
     var locationManager : CLLocationManager!
     /// 点数组
-    var points : NSMutableArray?
+//    var points : NSMutableArray?
     ///--------------------------速度、里程、时间、定时器------------------------
     /// 速度
     var speed : CLLocationSpeed?
@@ -27,6 +28,12 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     var time : UInt?
     /// 定时器
     var myTimer : NSTimer?
+    
+    /// 最后一次定位的时间
+    var lastLocationTime : NSDate?
+    
+    /// 骑行记录的model +++++++++++++++++++++++++++++++++++++
+    var currentActivity = ActivityModel.getCurrentActivity()
     
     // ----------------------------------------------------
     /// ------自己代理属性
@@ -61,7 +68,7 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
         self.locationManager.startUpdatingLocation() //开始定位---刚启动应用需要定位当前位置。
 //        self.locationManager.startUpdatingHeading() // 获取方向的时候用的，暂时不需要
         // 初始化点数组
-        self.points = NSMutableArray()
+//        self.points = NSMutableArray()
         // 初始化自己的代理
         
     }
@@ -70,6 +77,8 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     // CLLocationManager定位代理方法
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("定位更新了")
+        lastLocationTime = NSDate()
+        print("speed====\(speed)")
         if locations.last != nil {
             self.speed = locations.last!.speed
             if self.speed <= 0 {
@@ -92,12 +101,12 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
                 }
 
                 currentCLLocation = CLLocation.init(latitude: coor.latitude, longitude: coor.longitude)
-                self.points?.addObject(currentCLLocation!)
+//                self.points?.addObject(currentCLLocation!)
                 
                 if self.cyclingType == 1 || self.cyclingType == 4 {// 启动、或者继续的时候执行
                     // 地图更新代理
                     if self.cycDelegate != nil {
-                        self.cycDelegate!.didUpdateAction(currentCLLocation!,pointArray: self.points!)
+                        self.cycDelegate!.didUpdateAction(currentCLLocation!,pointArray: self.currentActivity.sampleArray!)
                     }
                 }else{//没有在骑行
                     self.locationManager.stopUpdatingLocation()
@@ -107,11 +116,64 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     }
     // 每秒执行一次
      func myTimerAction() {
-        self.time = self.time! + 1
-        
-        if self.time!%5 == 0 {///每隔5秒存储一个点
-//            Realm
+        let nowDate = NSDate()
+        if lastLocationTime == nil {
+            lastLocationTime = NSDate()
         }
+        
+       let timeDiff = nowDate.timeIntervalSinceDate(lastLocationTime!)
+        if self.speed <= 1 || timeDiff > 2{ /// 速度太小不记录 或者 2秒没有定位了。
+            return
+        }
+        self.time = self.time! + 1
+        /// 每秒一次更新。 但是数据库是5秒一次。
+        self.updateActivityAction()
+
+        if self.time!%kSpaceTime == 0 {///每隔5秒存储一个点
+            /// 存储数据库
+        }
+    }
+    
+    /// 初始化当前骑行记录的数据
+    func initActivityAction() {
+        self.currentActivity.activityId = String(format: "IOS_%ld",arc4random())
+        self.currentActivity.userId = "1" // 暂时这样
+        self.currentActivity.title = "测试骑行"
+        self.currentActivity.isSyn = false
+        self.currentActivity.isFinished = false
+        self.currentActivity.isFake = false
+        self.currentActivity.startTime = NSDate()
+        self.currentActivity.endTime = NSDate()
+        self.currentActivity.avgSpeed = 0
+        self.currentActivity.maxSpeed = 0
+        self.currentActivity.totalDistance = 0
+    }
+    /// 更新当前骑行记录的数据
+    func updateActivityAction() {
+        if self.speed <= 1 { /// 速度太小不记录
+            return
+        }
+
+        self.currentActivity.isSyn = false
+        self.currentActivity.isFinished = false
+        self.currentActivity.isFake = false
+        self.currentActivity.endTime = NSDate()
+        if self.currentActivity.maxSpeed < self.speed {
+            self.currentActivity.maxSpeed = self.speed
+        }
+        self.currentActivity.totalDistance = self.distance
+        /// 点model
+        let currentSample = SampleModel()
+        currentSample.sampleId = self.time
+        currentSample.currentCLLocation = self.currentCLLocation
+        currentSample.lat = self.currentCLLocation?.coordinate.latitude
+        currentSample.log = self.currentCLLocation?.coordinate.longitude
+        currentSample.speed = self.speed
+        currentSample.distance = self.distance
+        currentSample.time = self.time
+        /// 添加点model
+        self.currentActivity.sampleArray?.addObject(currentSample)
+        
     }
     
 }

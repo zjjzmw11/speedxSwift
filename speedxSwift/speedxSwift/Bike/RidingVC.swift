@@ -121,7 +121,7 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,U
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
-    /// 启动或者暂停方法
+    /// 启动或者暂停方法----------------------------------起点
     func startOrPauseAction() {
         print("启动骑行")
         cycManager.cyclingType = 1 // 启动
@@ -130,6 +130,35 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,U
         cycManager.myTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: cycManager, selector: #selector(myTimerAction), userInfo: nil, repeats: true)
 
         cycManager.locationManager.startUpdatingLocation() // 开启定位
+        
+        /// 第一次开启的时候，初始化骑行model---------------------------------------------
+        self.initActivityAction()
+        
+    }
+    /// 初始化当前骑行记录的数据
+    func initActivityAction() {
+        self.cycManager.currentActivity.activityId = String(format: "IOS_%ld",arc4random())
+        self.cycManager.currentActivity.userId = "1" // 暂时这样
+        self.cycManager.currentActivity.title = "测试骑行"
+        self.cycManager.currentActivity.isSyn = false
+        self.cycManager.currentActivity.isFinished = false
+        self.cycManager.currentActivity.isFake = false
+        self.cycManager.currentActivity.startTime = NSDate()
+        self.cycManager.currentActivity.endTime = NSDate()
+        self.cycManager.currentActivity.avgSpeed = 0
+        self.cycManager.currentActivity.maxSpeed = 0
+        self.cycManager.currentActivity.totalDistance = 0
+    }
+    /// 更新当前骑行记录的数据
+    func updateActivityAction() {
+        self.cycManager.currentActivity.isSyn = false
+        self.cycManager.currentActivity.isFinished = false
+        self.cycManager.currentActivity.isFake = false
+        self.cycManager.currentActivity.startTime = NSDate()
+        self.cycManager.currentActivity.endTime = NSDate()
+        self.cycManager.currentActivity.avgSpeed = 0
+        self.cycManager.currentActivity.maxSpeed = 0
+        self.cycManager.currentActivity.totalDistance = 0
     }
     
     func myTimerAction() {
