@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Realm
 
 class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     
@@ -104,8 +105,13 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
             }
         }
     }
+    // 每秒执行一次
      func myTimerAction() {
         self.time = self.time! + 1
+        
+        if self.time!%5 == 0 {///每隔5秒存储一个点
+//            Realm
+        }
     }
     
 }

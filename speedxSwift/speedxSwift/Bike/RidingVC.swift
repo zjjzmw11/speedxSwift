@@ -155,7 +155,21 @@ class RidingVC: BaseViewController,CLLocationManagerDelegate,MKMapViewDelegate,U
         let h = cycManager.time!/3600
         let m = cycManager.time!%3600/60
         let s = cycManager.time!%3600%60
-        self.timeValueLabel?.text = String(format: "%d:%d:%d",h,m,s)
+        
+        var hString = String(format: "%d", h)
+        if h < 10 {
+            hString = String(format: "0%d", h)
+        }
+        var mString = String(format: "%d", m)
+        if m < 10 {
+            mString = String(format: "0%d", m)
+        }
+        var sString = String(format: "%d", s)
+        if s < 10 {
+            sString = String(format: "0%d", s)
+        }
+
+        self.timeValueLabel?.text = String(format: "%@:%@:%@",hString,mString,sString)
 
     }
     func didUpdateAction(loca: CLLocation, pointArray: NSMutableArray) {
