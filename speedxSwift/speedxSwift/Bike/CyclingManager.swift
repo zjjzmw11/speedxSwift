@@ -63,6 +63,11 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
         if self.locationManager.respondsToSelector(#selector(CLLocationManager.requestAlwaysAuthorization)) {
             self.locationManager.requestAlwaysAuthorization()
         }
+        if #available(iOS 9.0, *) {
+            self.locationManager.allowsBackgroundLocationUpdates = true
+        } else {
+            // Fallback on earlier versions
+        }
         self.locationManager.pausesLocationUpdatesAutomatically = false
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.startUpdatingLocation() //开始定位---刚启动应用需要定位当前位置。
