@@ -70,6 +70,8 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
         }
         self.locationManager.pausesLocationUpdatesAutomatically = false
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        /// 超过 5 米 后，才 执行 定位更新的代码----可以省点
+        self.locationManager.distanceFilter = 5
         self.locationManager.startUpdatingLocation() //开始定位---刚启动应用需要定位当前位置。
 //        self.locationManager.startUpdatingHeading() // 获取方向的时候用的，暂时不需要
         // 初始化点数组
