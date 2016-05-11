@@ -70,6 +70,8 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
         }
         self.locationManager.pausesLocationUpdatesAutomatically = false
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        self.locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+
         /// 超过 5 米 后，才 执行 定位更新的代码----可以省点
         self.locationManager.distanceFilter = 5
         self.locationManager.startUpdatingLocation() //开始定位---刚启动应用需要定位当前位置。
@@ -83,21 +85,27 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     
     // CLLocationManager定位代理方法
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("定位更新了")
+        print("定位更新了\(locations.last!.speed)--\(locations.last!.coordinate)")
         lastLocationTime = NSDate()
-        print("speed====\(speed)")
+        
+//        print("speed====\(speed)----\(CLLocationCoordinate2DIsValid(locations.last!.coordinate))")
         if locations.last != nil {
             self.speed = locations.last!.speed
             if self.speed <= 0 {
                 self.speed = 0.00
             }
-            // 速度是负数 证明不可用
-            if locations.last!.speed > 1.0 {// 当前点才有意义 定位成功当前位置，才有可能stop定位
+            // 速度是负数 证明不可用 ??? 也不能用速度判定是否有用。。。
+//            if locations.last!.speed > 1.0 {// 当前点才有意义 定位成功当前位置，才有可能stop定位
+              if CLLocationCoordinate2DIsValid(locations.last!.coordinate) {// 当前点才有意义 定位成功当前位置，才有可能stop定位
+
                 /// 地球 转成 火星
                 let coor = CLLocationCoordinate2D.init(latitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLat, longitude: CoordsTransform.transformGpsToMarsCoords(locations.last!.coordinate.longitude, wgLat: locations.last!.coordinate.latitude).mgLon);
                 if self.cyclingType == 1 || self.cyclingType == 4 {
                     // -------------- 速度、里程、时间
                     self.speed = locations.last!.speed
+                    if self.speed < 0 {
+                        self.speed = 0.00
+                    }
                     let newLocation = CLLocation.init(latitude: coor.latitude, longitude: coor.longitude)
                     let meters = newLocation.distanceFromLocation(currentCLLocation!)
                     self.distance = self.distance! + meters
@@ -129,8 +137,9 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
         }
         
        let timeDiff = nowDate.timeIntervalSinceDate(lastLocationTime!)
-        if self.speed <= 1 || timeDiff > 2{ /// 速度太小不记录 或者 2秒没有定位了。
-            return
+        if self.speed <= 1 || timeDiff > 2{ /// 速度太小不记录 或者 2秒没有定位了。？？？？ 什么时候 增加秒数、什么时候return 需要再想想。
+            // todo
+//            return
         }
         self.time = self.time! + 1
         /// 每秒一次更新。 但是数据库是5秒一次。
@@ -157,7 +166,8 @@ class CyclingManager: NSObject,CLLocationManagerDelegate,MKMapViewDelegate{
     }
     /// 更新当前骑行记录的数据
     func updateActivityAction() {
-        if self.speed <= 1 { /// 速度太小不记录
+//        if self.speed <= 1 { /// 速度太小不记录
+        if !CLLocationCoordinate2DIsValid(self.currentCLLocation!.coordinate) {// 当前点才有意义 定位成功当前位置，才有可能stop定位
             return
         }
 
